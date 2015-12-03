@@ -1,10 +1,22 @@
-$icon-font-path: "../bower_components/patternfly-sass/assets/fonts/patternfly/";
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "font-awesome/scss/font-awesome.scss";
-@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "asciidoctor.css";
-@import "base.css";
-@import "styles.css";
 
+.main-banner {
+  padding: 75px 0;
+  text-align: center;
+
+  /* background: #ca0612 url(../img/banner-bg.jpg) repeat-x left top; */
+  background: #18181a url(../images/banner_green.png) repeat center center;
+  color: #fff;
+  padding: 60px 0;
+}
+
+.footer {
+  color: #fff;
+  background: #0C7514;
+  background-image: linear-gradient(#0C7314 0px, #0D7A15 100%);
+  background: #18181a url(../images/banner_green.png) repeat center center;
+}

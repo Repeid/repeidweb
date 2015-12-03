@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name meanApp.controller:MainCtrl
+ * @name repeidApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the meanApp
+ * Controller of the repeidApp
  */
-angular.module('mean')
+angular.module('repeidApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

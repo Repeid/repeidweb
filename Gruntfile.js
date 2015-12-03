@@ -1,4 +1,4 @@
-// Generated on 2015-11-17 using generator-angular 0.14.0
+// Generated on 2015-12-03 using generator-angular 0.14.0
 'use strict';
 
 // # Globbing
@@ -24,12 +24,6 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
-  // Load auto source load
-  grunt.loadNpmTasks('grunt-include-source');
-
-  // Load war generator
-  grunt.loadNpmTasks('grunt-war');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -70,10 +64,6 @@ module.exports = function (grunt) {
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
-      },
-      includeSource: {
-        files: ['<%= yeoman.app %>/index.html'],
-        tasks: ['includeSource:server']
       }
     },
 
@@ -212,29 +202,29 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: /\.\.\//
+        ignorePath:  /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath: /\.\.\//,
-        fileTypes: {
+        ignorePath:  /\.\.\//,
+        fileTypes:{
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-            detect: {
-              js: /'(.*\.js)'/gi
-            },
-            replace: {
-              js: '\'{{filePath}}\','
+              detect: {
+                js: /'(.*\.js)'/gi
+              },
+              replace: {
+                js: '\'{{filePath}}\','
+              }
             }
           }
-        }
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    },
+    }, 
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -372,7 +362,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/**/*.html', 'modules/***/views/**/*.html'],
+          src: ['*.html'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -381,7 +371,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'mean',
+          module: 'repeidApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -421,7 +411,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '*.html', 'views/**/*.html', 'modules/***/views/**/*.html',
+            '*.html',
             'images/{,*/}*.{webp}',
             'styles/fonts/{,*/}*.*'
           ]
@@ -434,16 +424,6 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>'
-        }, {
-          expand: true,
-          cwd: 'bower_components/patternfly/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        }, {
-          expand: true,
-          cwd: 'bower_components/patternfly/components/font-awesome',
-          src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
       },
@@ -476,54 +456,6 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    },
-
-    // Include source
-    includeSource: {
-      options: {
-        basePath: 'app',
-        baseUrl: '/'
-      },
-      server: {
-        files: {
-          '.tmp/index.html': '<%= yeoman.app %>/index.html'
-        }
-      },
-      dist: {
-        files: {
-          '<%= yeoman.app %>/index.html': '<%= yeoman.app %>/index.tpl.html'
-        }
-      }
-    },
-
-    /*
-     * Build a WAR (web archive) without Maven or the JVM installed. carlos
-     */
-    /*
-     * Build a WAR (web archive) without Maven or the JVM installed.
-     */
-    war: {
-      target: {
-        options: {
-          war_dist_folder: '<%= yeoman.dist %>',
-          war_name: 'mean',
-          webxml_welcome: 'index.html',
-          webxml_display_name: 'Mean',
-          webxml_mime_mapping: [
-            {
-              extension: 'woff',
-              mime_type: 'application/font-woff'
-            }]
-        },
-        files: [
-          {
-            expand: true,
-            cwd: '<%= yeoman.dist %>',
-            src: ['**'],
-            dest: ''
-          }
-        ]
-      }
     }
   });
 
@@ -535,7 +467,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'includeSource:dist',
       'wiredep',
       'concurrent:server',
       'postcss:server',
@@ -560,7 +491,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'includeSource:dist',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -574,8 +504,7 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'war'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [

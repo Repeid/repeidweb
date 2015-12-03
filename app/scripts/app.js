@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name meanApp
+ * @name repeidApp
  * @description
- * # meanApp
+ * # repeidApp
  *
  * Main module of the application.
  */
-/*angular
-  .module('mean', [
+angular
+  .module('repeidApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -24,12 +24,22 @@
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/overview', {
+        templateUrl: 'views/overview.html',
+        controller: 'OverviewCtrl',
+        controllerAs: 'overview'
+      })
+      .when('/descargas', {
+        templateUrl: 'views/descargas.html',
+        controller: 'DescargasCtrl',
+        controllerAs: 'descargas'
+      })
+      .when('/documentos', {
+        templateUrl: 'views/documentos.html',
+        controller: 'DocumentosCtrl',
+        controllerAs: 'documentos'
       })
       .otherwise({
         redirectTo: '/'
       });
-  });*/
+  });

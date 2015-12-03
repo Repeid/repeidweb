@@ -8,7 +8,7 @@
  * Controller of the repeidApp
  */
 angular.module('repeidApp')
-  .controller('AboutCtrl', function () {
+  .controller('DocumentosCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
