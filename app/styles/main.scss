@@ -1,0 +1,10 @@
+$icon-font-path: "../bower_components/patternfly-sass/assets/fonts/patternfly/";
+// bower:scss
+@import "font-awesome/scss/font-awesome.scss";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "asciidoctor.css";
+@import "base.css";
+@import "styles.css";
+
