@@ -26,6 +26,9 @@ module.exports = function (grunt) {
   };
 
   // Define the configuration for all the tasks
+
+  grunt.loadNpmTasks('grunt-gh-pages');
+
   grunt.initConfig({
 
     // Project settings
@@ -224,7 +227,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
@@ -456,6 +459,20 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    //Git deploy
+    'gh-pages': {
+      options: {
+        base: 'dist',
+        repo: 'https://github.com/Repeid/repeid.github.io.git',
+        branch: 'master',
+        user: {
+          name: 'Carlos Feria',
+          email: 'carlosthe19916@gmail.com'
+        }
+      },
+      src: ['**']
     }
   });
 
